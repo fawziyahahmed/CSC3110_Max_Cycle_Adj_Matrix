@@ -286,9 +286,12 @@ public class Main {
 
         if (cycles != null && adjMatrix != null) {
             Instant start = Instant.now();
+            Instant startAlgorithm1 = Instant.now();
+
 
             // Algorithm 1: Call the function to Remove edges in the largest cycle
             removeMax(adjMatrix, cycles);
+            
             // Display the first algorithm's results
             System.out.println("\nAlgorithm 1 Results:");
             System.out.println("Updated Adjacency Matrix:");
@@ -300,9 +303,15 @@ public class Main {
             for (ArrayList<Integer> cycle : cycles) {
                 System.out.println(cycle);
             }
+            Instant endAlgorithm1 = Instant.now();
+            Duration durationAlgorithm1 = Duration.between(startAlgorithm1, endAlgorithm1);
 
+
+            Instant startAlgorithm2 = Instant.now();
             // Algorithm 2: call the function to Remove edges based on cost comparison
             removeMaxByCost(adjMatrix, cycles);
+
+            
             // Display the second algorithm's results
             System.out.println("\n\nAlgorithm 2 Results:");
             System.out.println("Updated Adjacency Matrix:");
@@ -330,9 +339,16 @@ public class Main {
 
            
             // END ALGO CODE
+            Instant endAlgorithm2 = Instant.now();
+            Duration durationAlgorithm2 = Duration.between(startAlgorithm2, endAlgorithm2);
+           
             Instant end = Instant.now();
 
-            System.out.printf("Algo Run Duration: %s Nanoseconds", Duration.between(start, end).getNano());
+            System.out.printf("Algorithm 1 Duration: %s Nanoseconds%n", durationAlgorithm1.getNano());
+            System.out.printf("Algorithm 2 Duration: %s Nanoseconds%n", durationAlgorithm2.getNano());
+            System.out.printf("Total Duration: %s Nanoseconds%n", Duration.between(start, end).getNano());
+
+            //System.out.printf("Algo Run Duration: %s Nanoseconds", Duration.between(start, end).getNano());
 
             // Export updated matrix into file
             exportFile(adjMatrix, outputName, null);
