@@ -325,18 +325,6 @@ public class Main {
                 
             }
 
-            // Print the updated adjacency matrix
-            // System.out.println("Updated Adjacency Matrix:");
-            // for (ArrayList<Integer> row : adjMatrix) {
-            //     for (Integer i : row) System.out.printf("%d ", i);
-            //     System.out.println();
-            // }
-
-            // //System.out.println("Cycles:");
-            // for (ArrayList<Integer> cycle : cycles) {
-            //     System.out.println(cycle);
-            // }
-
            
             // END ALGO CODE
             Instant endAlgorithm2 = Instant.now();
@@ -347,8 +335,6 @@ public class Main {
             System.out.printf("Algorithm 1 Duration: %s Nanoseconds%n", durationAlgorithm1.getNano());
             System.out.printf("Algorithm 2 Duration: %s Nanoseconds%n", durationAlgorithm2.getNano());
             System.out.printf("Total Duration: %s Nanoseconds%n", Duration.between(start, end).getNano());
-
-            //System.out.printf("Algo Run Duration: %s Nanoseconds", Duration.between(start, end).getNano());
 
             // Export updated matrix into file
             exportFile(adjMatrix, outputName, null);
